@@ -135,7 +135,7 @@ function App() {
         <div className="flex-1 container mx-auto px-2 sm:px-4 py-4 sm:py-8 flex flex-col">
           <div className="text-center mb-4 sm:mb-8 animate-fade-in">
             <div className="inline-block mb-2 sm:mb-4">
-              <div className="w-20 h-20 sm:w-16 sm:h-16 rounded-2xl mx-auto mb-2 sm:mb-4 shadow-2xl"><img src="/public/logo.png" alt="" /></div>
+              <div className="w-20 h-20 sm:w-16 sm:h-16 rounded-2xl mx-auto mb-2 sm:mb-4 shadow-2xl"><img src="/logo.png" alt="" /></div>
             </div>
             <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-300 to-pink-300 mb-2 sm:mb-4">
               Developers Leaderboard
