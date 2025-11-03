@@ -1,16 +1,100 @@
-# React + Vite
+# Devs Leaderboard 🏆
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A dynamic and responsive web application that ranks developers based on their GitHub contributions. It provides a gamified experience with a real-time leaderboard, encouraging friendly competition and showcasing individual impact through repository and commit counts.
 
-Currently, two official plugins are available:
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+-   **Real-time Ranking**: Displays an up-to-date list of developers sorted by points.
+-   **GitHub Integration**: Authenticates users via GitHub OAuth to fetch their contribution data automatically.
+-   **Gamified Point System**: Awards points for public repositories, commits, and daily activity.
+-   **Daily Check-in**: Allows users to earn bonus points once a day to encourage consistent engagement.
+-   **Responsive Design**: A sleek, modern UI that is fully responsive and looks great on both desktop and mobile devices.
+-   **Visual Rank Indicators**: Special badges for the top 3 contributors.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Technologies Used
 
-## Expanding the ESLint configuration
+| Technology    | Description                      |
+| :------------ | :------------------------------- |
+| **React**     | A JavaScript library for building user interfaces. |
+| **Vite**      | A modern frontend build tool for fast development. |
+| **TailwindCSS** | A utility-first CSS framework for rapid UI development. |
+| **Axios**     | A promise-based HTTP client for making API requests. |
+| **ESLint**    | A tool for identifying and reporting on patterns in JavaScript. |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Getting Started
+
+To get a local copy up and running, follow these simple steps.
+
+### Prerequisites
+
+-   Node.js (v18 or later)
+-   npm (or yarn/pnpm)
+-   A running instance of the backend server. This frontend application expects the backend API to be available at `http://localhost:5000`.
+
+### Installation
+
+1.  **Clone the Repository**
+    ```bash
+    git clone https://github.com/LORDBILLZ17/frontend.git
+    ```
+
+2.  **Navigate to the Project Directory**
+    ```bash
+    cd frontend
+    ```
+
+3.  **Install Dependencies**
+    ```bash
+    npm install
+    ```
+
+4.  **Run the Development Server**
+    ```bash
+    npm run dev
+    ```
+    The application will be available at `http://localhost:5173` (or another port if 5173 is in use).
+
+## 📋 Usage
+
+Once the application is running, you can interact with it as follows:
+
+1.  **Login**: Open the application in your browser and click the **"Login with GitHub"** button. This will redirect you to the GitHub authentication page.
+2.  **Authorize**: Grant the application permission to access your public repository data.
+3.  **View Leaderboard**: After successful authentication, you will be redirected back to the application. Your profile will be fetched, your points calculated, and your position updated on the leaderboard.
+4.  **Daily Check-in**: If you are logged in, you can click the **"Daily Check-in (+1)"** button once every 24 hours to claim an extra point.
+
+## 🤝 Contributing
+
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1.  **Fork the Project**: Click the 'Fork' button at the top right of this page.
+2.  **Create your Feature Branch**:
+    ```bash
+    git checkout -b feature/AmazingFeature
+    ```
+3.  **Commit your Changes**:
+    ```bash
+    git commit -m 'Add some AmazingFeature'
+    ```
+4.  **Push to the Branch**:
+    ```bash
+    git push origin feature/AmazingFeature
+    ```
+5.  **Open a Pull Request**: Go back to your forked repository on GitHub and click the 'New pull request' button.
+
+## 📜 License
+
+This project is not under a specific license. You are free to use and modify the code as you see fit.
+
+## 👤 Author
+
+**LORDBILLZ17**
+
+-   **LinkedIn**: [Your LinkedIn Profile](https://linkedin.com/in/yourusername)
+-   **Twitter**: [@YourTwitterHandle](https://twitter.com/yourtwitterhandle)
+
+[![Readme was generated by Dokugen](https://img.shields.io/badge/Readme%20was%20generated%20by-Dokugen-brightgreen)](https://www.npmjs.com/package/dokugen)
