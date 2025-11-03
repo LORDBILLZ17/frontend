@@ -10,13 +10,15 @@ function App() {
   const [checkInLoading, setCheckInLoading] = useState(false);
   const [checkInMessage, setCheckInMessage] = useState("");
 
+  const BACKEND_URL = "https://backend-4ave.onrender.com";
+
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const username = urlParams.get('username');
     
     if (username) {
       setCurrentUser(username);
-      axios.get(`http://localhost:5000/api/points/${username}`)
+      axios.get(`${BACKEND_URL}/api/points/${username}`)
         .then(() => {
           loadLeaderboard();
         })
@@ -34,9 +36,9 @@ function App() {
 
   const loadLeaderboard = () => {
     setIsLoading(true);
-    axios.get("http://localhost:5000/api/leaderboard")
+    axios.get(`${BACKEND_URL}/api/leaderboard`)
       .then(res => {
-        console.log("Leaderboard data:", res.data); // Debug: Check what data we're receiving
+        console.log("Leaderboard data:", res.data);
         setLeaderboard(res.data);
         setTimeout(() => setIsLoading(false), 600);
       })
@@ -50,10 +52,9 @@ function App() {
     setCheckInMessage("");
     
     try {
-      const response = await axios.post(`http://localhost:5000/api/checkin/${currentUser}`);
+      const response = await axios.post(`${BACKEND_URL}/api/checkin/${currentUser}`);
       
       if (response.data.success) {
-        // Update UI immediately for better UX
         const updatedLeaderboard = leaderboard.map(user => {
           if (user.username === currentUser) {
             return {
@@ -65,17 +66,13 @@ function App() {
           return user;
         });
 
-        // Sort by points after update
         const sortedLeaderboard = updatedLeaderboard.sort((a, b) => (b.points || 0) - (a.points || 0));
         setLeaderboard(sortedLeaderboard);
         
         setCheckedInToday(true);
         localStorage.setItem('lastCheckIn', new Date().toDateString());
         
-        // Show success message
         setCheckInMessage("Points received for today! +1 point added!");
-        
-        // Clear message after 3 seconds
         setTimeout(() => setCheckInMessage(""), 3000);
       }
     } catch (error) {
@@ -120,7 +117,6 @@ function App() {
     }
   };
 
-  // Function to get display name with proper fallbacks
   const getDisplayName = (user) => {
     return user.username || user.id || "Unknown User";
   };
@@ -168,7 +164,6 @@ function App() {
               </div>
             )}
 
-            {/* Check-in Message */}
             {checkInMessage && (
               <div className={`mb-4 p-3 rounded-lg text-center ${
                 checkInMessage.includes("successful") 
@@ -181,7 +176,7 @@ function App() {
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
               <a
-                href="http://localhost:5000/auth/github"
+                href={`${BACKEND_URL}/auth/github`}
                 className="group relative overflow-hidden bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-2xl shadow-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center justify-center space-x-2 sm:space-x-3 w-full sm:flex-1 max-w-md text-sm sm:text-base"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
@@ -235,7 +230,6 @@ function App() {
                 </div>
               </div>
 
-              {/* Loading State */}
               {isLoading && (
                 <div className="p-6 sm:p-8 text-center">
                   <div className="inline-flex items-center space-x-2">
@@ -247,7 +241,6 @@ function App() {
                 </div>
               )}
 
-              {/* Table Body */}
               <div className="divide-y divide-white/5 max-h-[500px] overflow-y-auto">
                 {leaderboard.map((user, index) => (
                   <div
@@ -380,7 +373,6 @@ function App() {
                 ))}
               </div>
 
-              {/* Empty State */}
               {!isLoading && leaderboard.length === 0 && (
                 <div className="text-center py-8 sm:py-12">
                   <div className="w-16 h-16 sm:w-24 sm:h-24 bg-white/10 rounded-3xl flex items-center justify-center mx-auto mb-4">
@@ -395,7 +387,6 @@ function App() {
             </div>
           </div>
 
-          {/* Footer */}
           <div className="text-center mt-6 sm:mt-8 pb-4 animate-fade-in">
             <p className="text-gray-400 text-xs sm:text-sm">
               Built with ❤️ for the Developers community
